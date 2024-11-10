@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="/styles/login.css" />
+  </head>
+  <body>
+    <header>
+      <a href="../index.html"><img src="../images/logo.png" alt="Logo" /></a>
+    </header>
+
+    <div class="form-container">
+      <h1>Login</h1>
+      <p>Enter your username and password to log in</p>
+
+      <form id="loginForm">
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Username"
+          required
+        />
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+        <input type="submit" value="Log In" />
+      </form>
+
+      <div class="social-login">
+        <button class="social-button google">Login with Google</button>
+        <button class="social-button facebook">Login with Facebook</button>
+        <button class="social-button twitter">Login with X</button>
+      </div>
+    </div>
+  </body>
+</html>
