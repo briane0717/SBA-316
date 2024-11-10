@@ -1,59 +1,138 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-body {
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  transition: background-image 1s ease;
-  height: 100vh;
+  /* CSS Custom Properties */
+  :root {
+    --main-bg: #4a4e4d;
+    --top-menu-bg: #0e9aa7;
+    --sub-menu-bg: #3da4ab;
+  }
+
+  /* General Styles */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /* Body styles */
+  body {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: background-image 1s ease;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Headings */
+  h1 {
+    color: white;
+    font-size: 2.5em;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    margin-bottom: 20px;
+  }
+
+  h2, h3 {
+    color: white;
+    font-size: 1.5em;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    margin-bottom: 10px;
+  }
+
+  /* Main content styling */
+  main {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 50px;
+  }
+
+  /* Button styles */
+  button {
+    font-size: 1.2em;
+    color: white;
+    background-color: #0e0e52;
+    border: 2px solid white;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+
+  /* Navigation (Top Menu) */
+  #top-menu {
+    position: fixed;
+    padding: 10px 0;
+    top: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color:rgba(0, 0, 0, 0.7);
+    z-index: 20;
+  }
+
+  #top-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 0 15px;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    line-height: 3rem;
+  }
+
+  #top-menu a:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+
+  /* Submenu Styles */
+/* Submenu Styles */
+#sub-menu {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
   align-items: center;
+  position: absolute;
+  /* top: 10px; */
+  width: 100%;
+  background-color:rgba(0, 0, 0, 0.4) ;
+  justify-content: space-evenly;
+  padding: 10px 0;
+  transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+  opacity: 0; /* Initially hidden */
+  visibility: hidden; /* Ensures submenu is not clickable before visible */
 }
 
-.title {
-  color: white;
-  font-size: 2.5em;
-  text-align: center;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-  margin-bottom: 20px;
-}
 
-h2,
-h3 {
-  color: white;
-  font-size: 1.5em;
-  text-align: center;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-  margin-bottom: 10px;
-}
 
-main {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 50px;
-}
 
-button {
-  font-size: 1.2em;
-  color: white;
-  background-color: #0e0e52;
-  border: 2px solid white;
-  border-radius: 8px;
-  padding: 10px 20px;
-  cursor: pointer;
-}
+  #sub-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+  }
 
-.login {
-  padding-left: 20px;
-  padding-right: auto;
-}
 
-#emphasis {
-  font-size: 100px;
-}
+
+
+  #sub-menu.show {
+    opacity: 1; /* Show submenu */
+    visibility: visible; /* Make it clickable */
+    top: 80px; /* Adjusted for smooth dropdown effect */
+  }
+
+  /* Flexbox Utility Classes */
+  .flex-ctr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .flex-around {
+    display: flex;
+    justify-content: space-around;
+    align-items: center
