@@ -17,3 +17,12 @@ function changeBackground() {
   i = (i + 1) % backgrounds.length;
 }
 setInterval(changeBackground, 3500);
+
+const signUpButton = document.getElementById("signup");
+signUpButton.addEventListener("click", function () {
+  window.location.href = "/pages/signup.html";
+});
+const loginButton = document.getElementById("login");
+loginButton.addEventListener("click", function () {
+  window.location.href = "/pages/login.html";
+});

@@ -3,7 +3,44 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/signup.css" />
     <title>Signup</title>
   </head>
-  <body></body>
+  <body>
+    <header> <a href="../index.html"> LearnTheGame.com</header></a>
+    <div class="form-container">
+      <h1>Register</h1>
+      <p>Please provide information below:</p>
+      <form id="registration">
+        <input
+          name="username"
+          type="text"
+          placeholder="Enter username"
+          minlength="4"
+          maxlength="20"
+          required
+        />
+        <input name="email" type="email" placeholder="Enter email" required />
+        <input
+          name="password"
+          type="password"
+          placeholder="Enter password"
+          required
+        />
+        <input
+          name="password-confirm"
+          type="password"
+          placeholder="Re-enter password"
+          required
+        />
+        <input id="register" type="submit" value="Register Now" />
+      </form>
+      <div class="social-login">
+        <button class="social-button google">Sign up with Google</button>
+        <button class="social-button facebook">Sign up with Facebook</button>
+        <button class="social-button twitter">Sign up with Twitter</button>
+      </div>
+    </div>
+    <script src="../scripts/signup.js"></script>
+  </body>
 </html>
