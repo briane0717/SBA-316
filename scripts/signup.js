@@ -1,9 +1,9 @@
-console.log("Script is working");
+console.log("script is running");
 const registration = document.querySelector("#registration");
 const userName = registration.elements["username"];
 const email = registration.elements["email"];
 const password = registration.elements["password"];
-const passwordCheck = registration.elements["password-confirm"];
+const passwordCheck = registration.elements["passwordCheck"];
 
 registration.addEventListener("submit", validateRegistration);
 
@@ -84,14 +84,14 @@ function validatePassword(nameVal) {
   const hasSpecialCharacter = /[^a-zA-Z0-9]/.test(passwordVal);
 
   if (
-    passwordVal.length < 12 ||
+    passwordVal.length < 8 ||
     !hasUpperCase ||
     !hasLowerCase ||
     !hasNumber ||
     !hasSpecialCharacter
   ) {
     alert(
-      "Password must be at least 12 characters long, containing uppercase, lowercase, a number, and a special character."
+      "Password must be at least 8 characters long, containing uppercase, lowercase, a number, and a special character."
     );
     password.focus();
     return false;
