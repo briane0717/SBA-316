@@ -35,10 +35,9 @@ menuLinks.forEach((link) => {
 });
 
 // Event listener for top menu clicks
+// Event listener for top menu clicks
 topMenu.addEventListener("click", (evt) => {
   if (evt.target.tagName !== "A") return;
-
-  evt.preventDefault(); // Prevent default only if submenu is needed
 
   const clickedLink = menuLinks.find(
     (link) => link.text === evt.target.textContent
@@ -46,6 +45,8 @@ topMenu.addEventListener("click", (evt) => {
 
   // Check if the clicked link has sublinks
   if (clickedLink && clickedLink.subLinks) {
+    evt.preventDefault(); // Prevent default only if submenu is needed
+
     // Check if the submenu is already open for the same menu item
     if (
       subMenu.classList.contains("show") &&
@@ -63,6 +64,7 @@ topMenu.addEventListener("click", (evt) => {
     subMenu.classList.remove("show");
   }
 });
+
 
 // Function to build submenu items
 function buildSubMenu(subLinks) {
