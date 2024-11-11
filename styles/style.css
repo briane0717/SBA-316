@@ -103,7 +103,8 @@
   padding: 10px 0;
   transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
   opacity: 0; /* Initially hidden */
-  visibility: hidden; /* Ensures submenu is not clickable before visible */
+  visibility: hidden;
+  transform: translateY(8px) /* Ensures submenu is not clickable before visible */
 }
 
 
@@ -123,7 +124,8 @@
     opacity: 1; /* Show submenu */
     visibility: visible; /* Make it clickable */
     top: 80px; /* Adjusted for smooth dropdown effect */
-  }
+    transform: translateY(0);
+  } 
 
   /* Flexbox Utility Classes */
   .flex-ctr {

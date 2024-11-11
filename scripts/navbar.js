@@ -14,17 +14,17 @@ const menuLinks = [
     text: "Practice",
     href: "#",
     subLinks: [
-      { text: "Two Minute Drill", href: "/pages/Drills/football.html" },
-      { text: "Buzzer Beater", href: "/pages/Drills/basketball.html" },
-      { text: "Bottom of The Ninth", href: "/pages/Drills/baseball.html" },
-      { text: "Penalty Shot", href: "/pages/Drills/soccer.html" },
+      { text: "Two Minute Drill", href: "/pages/Practice/football.html" },
+      { text: "Buzzer Beater", href: "/pages/Practice/basketball.html" },
+      { text: "Bottom of The Ninth", href: "/pages/Practice/baseball.html" },
+      { text: "Penalty Shot", href: "/pages/Practice/soccer.html" },
     ],
   },
 ];
 
 // Reference to the top and submenu elements
-const topMenu = document.querySelector("#top-menu");
-const subMenu = document.querySelector("#sub-menu");
+const topMenu = document.getElementById("top-menu");
+const subMenu = document.getElementById("sub-menu");
 
 // Create main menu links
 menuLinks.forEach((link) => {
@@ -36,18 +36,31 @@ menuLinks.forEach((link) => {
 
 // Event listener for top menu clicks
 topMenu.addEventListener("click", (evt) => {
-  evt.preventDefault();
   if (evt.target.tagName !== "A") return;
+
+  evt.preventDefault(); // Prevent default only if submenu is needed
 
   const clickedLink = menuLinks.find(
     (link) => link.text === evt.target.textContent
   );
 
+  // Check if the clicked link has sublinks
   if (clickedLink && clickedLink.subLinks) {
-    buildSubMenu(clickedLink.subLinks);
-    subMenu.classList.add("show"); // Show submenu
+    // Check if the submenu is already open for the same menu item
+    if (
+      subMenu.classList.contains("show") &&
+      subMenu.innerHTML.includes(clickedLink.text)
+    ) {
+      // If submenu is visible and the same menu item is clicked again, hide it
+      subMenu.classList.remove("show");
+    } else {
+      // Otherwise, build the submenu and show it
+      buildSubMenu(clickedLink.subLinks);
+      subMenu.classList.add("show");
+    }
   } else {
-    subMenu.classList.remove("show"); // Hide submenu if no sublinks
+    // Hide submenu if the link doesn't have sublinks
+    subMenu.classList.remove("show");
   }
 });
 
@@ -58,13 +71,13 @@ function buildSubMenu(subLinks) {
     const subMenuLink = document.createElement("a");
     subMenuLink.href = subLink.href;
     subMenuLink.textContent = subLink.text;
+    subMenuLink.setAttribute("target", "_blank");
     subMenu.appendChild(subMenuLink);
   });
 }
 
 // Event listener to hide submenu when clicking on submenu items
 subMenu.addEventListener("click", (evt) => {
-  evt.preventDefault();
   if (evt.target.tagName !== "A") return;
 
   subMenu.classList.remove("show"); // Hide submenu after clicking a link
